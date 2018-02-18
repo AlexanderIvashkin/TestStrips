@@ -7,9 +7,13 @@ def strips_with_steps(midtime, stop, count = 5):
             [(strips[i], strips[i] - strips[i-1]) for i in range(1, len(strips))]
 
 i = 0
+str_mt = float(30)
+str_st = 1/3
+str_cnt = 10
 while i < 1000000:
-    strips = strips_with_steps(30, 1/3, 10)
+    strips = strips_with_steps(str_mt, str_st, str_cnt)
     i += 1
 
 print (strips)
 print (str(i) + " iterations")
+print ("Midtime: {:.1f}, stop interval: {:.1f}, count: {}".format(str_mt, str_st, str_cnt))
