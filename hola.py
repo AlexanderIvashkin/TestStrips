@@ -29,5 +29,10 @@ print (strips_listcomp(mt, st))
 
 def strips_with_steps(midtime, stop):
     """Print test strip timings - with steps between strips"""
-    return [midtime*((2**stop)**str) for str in range(-3,3)]
+    strips = [(midtime*((2**stop)**str)) for str in range(-3,3)]
+    return [(strips[0], strips[0])] + [(strips[i], strips[i] - strips[i-1])
+            for i in range(1, len(strips))]
 
+
+print (strips_with_steps.__doc__)
+print (strips_with_steps(mt, st))
